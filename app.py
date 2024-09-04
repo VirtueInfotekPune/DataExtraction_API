@@ -165,3 +165,7 @@ def upload_file():
         return jsonify({"message": "File processed successfully"}), 200
     else:
         return jsonify({"error": "Invalid file type"}), 400
+
+
+if _name_ == "_main_":
+    app.run(host='0.0.0.0', port=8000)
