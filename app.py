@@ -20,6 +20,12 @@ client = MongoClient(mongo_uri)
 db = client[database_name]
 collection = db[collection_name]
 
+# Ensure the collection exists
+if collection_name not in db.list_collection_names():
+    collection = db.create_collection(collection_name)
+else:
+    collection = db[collection_name]
+
 # Define a folder for uploads
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -150,6 +156,10 @@ def process_pdf(pdf_path, executive_id, executive_name):
     os.remove(table_txt_path)
     os.remove(text_txt_path)
     print("Files have been deleted.")
+
+@app.route('/', methods=['GET'])
+def server_status():
+    return jsonify({"message": "Server is running"}), 200
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
