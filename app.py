@@ -7,18 +7,26 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-mongo_uri = "mongodb://backend7_grapseeds:Q66Qg6LubfDXlUP@148.251.31.66:27017/backend7_back_24"
+
+# MongoDB connection settings
+mongo_uri = "mongodb://backend7_grapseeds:ZaI9t2DKVe4t@148.251.31.66:27017/backend7_back_24"
 database_name = "backend7_back_24"
 collection_name = "MAXLIFE_DATA"
 
-# # MongoDB credentials
-# mongo_uri = os.getenv("MONGO_URI")
-# database_name = "MAXLIFE"
-# collection_name = "MAXLIFE_DATA"
-
-client = MongoClient(mongo_uri)
+# Initialize MongoDB client
+client = MongoClient(mongo_uri, serverSelectionTimeoutMS=90000)
 db = client[database_name]
 collection = db[collection_name]
+
+# Check if the connection was successful
+try:
+    # Attempt to list collections to ensure connection is working
+    print("Connected to MongoDB")
+    print("Available collections:", db.list_collection_names())
+except Exception as e:
+    print("Error connecting to MongoDB:", e)
+
+
 
 # Ensure the collection exists
 if collection_name not in db.list_collection_names():
