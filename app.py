@@ -171,5 +171,6 @@ def upload_file():
         return jsonify({"error": "Invalid file type"}), 400
 
 
-if __name__ == "_main_":
-    app.run(host='0.0.0.0', port=8000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8000)
+
