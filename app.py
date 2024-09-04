@@ -7,10 +7,14 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# MongoDB credentials
-mongo_uri = os.getenv("MONGO_URI")
-database_name = "MAXLIFE"
+mongo_uri = "mongodb://backend7_grapseeds:Q66Qg6LubfDXlUP@148.251.31.66:27017/backend7_back_24"
+database_name = "backend7_back_24"
 collection_name = "MAXLIFE_DATA"
+
+# # MongoDB credentials
+# mongo_uri = os.getenv("MONGO_URI")
+# database_name = "MAXLIFE"
+# collection_name = "MAXLIFE_DATA"
 
 client = MongoClient(mongo_uri)
 db = client[database_name]
