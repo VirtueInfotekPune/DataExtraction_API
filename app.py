@@ -4,9 +4,10 @@ import ast
 import re
 import pdfplumber
 from pymongo import MongoClient
-
+from flask_cors import CORS
 app = Flask(__name__)
 
+CORS(app)
 
 # MongoDB connection settings
 mongo_uri = "mongodb://backend7_grapseeds:GAgMt9d0SRQ4@148.251.31.66:27017/backend7_back_24"
