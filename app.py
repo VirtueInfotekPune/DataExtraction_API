@@ -22,7 +22,6 @@ collection = db[collection_name]
 try:
     # Attempt to list collections to ensure connection is working
     print("Connected to MongoDB")
-    print("Available collections:", db.list_collection_names())
 except Exception as e:
     print("Error connecting to MongoDB:", e)
 
