@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 # MongoDB connection settings
-mongo_uri = "mongodb://backend7_grapseeds:GAgMt9d0SRQ4@127.0.0.1:27017/backend7_back_24"
+mongo_uri = "mongodb://backend7_grapseeds:GAgMt9d0SRQ4@148.251.31.66:27017/backend7_back_24"
 database_name = "backend7_back_24"
 collection_name = "MAXLIFE_DATA"
 
